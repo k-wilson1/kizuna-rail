@@ -15,3 +15,47 @@
 @import 'components/columns-grid.css' layer(components);
 
 @import 'layout/all-layouts.css' layer(layout);
+
+@media print {
+    header, 
+    nav, 
+    footer,
+    .print-button,
+    .back-button,
+    .navigation,
+    button,
+    .no-print {
+        display: none !important;
+    }
+    .confirmation-container,
+    .confirmation-page,
+    main {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    
+    }
+    .confirmation-container {
+        font-size: 10pt;
+        line-height: 1.2;
+    }
+
+    h1 { font-size: 16pt; margin: 0 0 5px 0; }
+    h2 { font-size: 13pt; margin: 10px 0 5px 0; }
+    h3 { font-size: 11pt; margin: 8px 0 3px 0; }
+    
+    .summary-row,
+    .info-row {
+        padding: 3px 0;
+    }
+
+    /* Use two-column layout if needed */
+    .details-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+}

@@ -26,8 +26,13 @@ const yenToUsd = (yen) => {
     return yen * exchangeRate;
 };
 
-const month = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
-]; 
-export { generateConfirmationCode, kmToMiles, yenToUsd, month };
+const getMonthAbbreviation = (monthNumber) => {
+    const monthAbbreviations = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
+                                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return monthAbbreviations[monthNumber - 1] || '';
+};
+const getMonthAbbreviations = (monthNumbers) => {
+    return monthNumbers.map(month => getMonthAbbreviation(month));
+};
+
+export { generateConfirmationCode, kmToMiles, yenToUsd, getMonthAbbreviation, getMonthAbbreviations };
