@@ -1,5 +1,5 @@
 import { getRouteById, getSchedulesByRoute } from '../../models/model.js';
-import { getMonthAbbreviations, getMonthAbbreviation } from '../../includes/helpers.js';
+import { getMonthAbbreviations } from '../../includes/helpers.js';
 
 export default async (req, res) => {
     const { routeId } = req.params;

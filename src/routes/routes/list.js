@@ -12,7 +12,6 @@ export default async (req, res) => {
         routes = routes.filter(route => route.bestSeason === selectedSeason);
     }
     if (selectedRegion !== 'all') {
-        // Try logging to see if this is even running
         routes = routes.filter(route => route.region === selectedRegion);
     }
 
@@ -22,6 +21,7 @@ export default async (req, res) => {
         routes,
         seasons,
         selectedRegion,
-        selectedSeason
+        selectedSeason,
+        query: req.query  
     });
 };

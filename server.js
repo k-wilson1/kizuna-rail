@@ -1,7 +1,9 @@
 import express from 'express';
 import globalMiddleware from './src/middleware/global.js';
 import Path from 'path';
+console.log('===== IMPORTING ROUTES MODULE =====');
 import routes from './src/routes/router.js';
+console.log('✓ Routes module imported');
 import pkg from './package.json' with { type: 'json' };
 import { fileURLToPath } from 'url';
 import { initializeDatabase } from './src/models/db-in-file.js';
@@ -56,7 +58,17 @@ app.use(globalMiddleware);
  * Routes
  */
 
-app.use('/', routes);
+app.use('/', routes);/**
+ * Routes
+ */
+
+console.log('===== ABOUT TO LOAD ROUTES =====');
+try {
+    app.use('/', routes);
+    console.log('✓ Routes loaded and registered');
+} catch (error) {
+    console.error('✗ ERROR WITH ROUTES:', error);
+}
 
 /**
  * Error Handling
